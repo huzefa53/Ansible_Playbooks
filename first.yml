@@ -1,0 +1,15 @@
+---
+
+- hosts: huzefa 
+  remote_user: root 
+  tasks:
+  - name: ensure apache is running 
+    service: name=httpd state=running enabled=yes 
+  - name: ensure omd is running
+    service: name=omd state=started enabled=yes
+  - name: ensure sshd is running
+    service: name=sshd state=started enabled=yes
+  - name: copy file
+    copy:
+     src=hosts
+     dest=/root/

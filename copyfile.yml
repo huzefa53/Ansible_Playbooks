@@ -1,0 +1,9 @@
+---
+
+- hosts: huzefa 
+  remote_user: root
+  tasks:
+   - name: copy file to dest with different way
+     copy:
+      src=hosts
+      dest=/root/

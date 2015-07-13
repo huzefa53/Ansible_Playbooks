@@ -1,0 +1,22 @@
+---
+#Handlers are lists of tasks, not really any different from regular tasks, 
+#that are referenced by name. Handlers are what notifiers notify. 
+#If nothing notifies a handler, it will not run. Regardless of how 
+#many things notify a handler, it will run only once, after all of 
+#the tasks complete in a particular play.
+
+#To run the playbook 
+# ansible-playbook -i inventory/check_mk
+
+- hosts: huzefa
+  remote_user: root 
+  tasks:
+  - name: copy file to dest with different way
+    copy:
+      src=hosts
+      dest=/home/huzefa/
+    notify:
+     - restart apache
+  handlers:
+    - name: restart apache
+      service: name=httpd state=restarted

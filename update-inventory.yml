@@ -1,0 +1,7 @@
+--- 
+# This playbook will do the reinventory on the host provided
+# ansible-playbook -i inventory/hosts updateinventory.yml
+
+- name: Apply update on following machine {{ target }} nodes
+  hosts: "{{ target }}"
+  gather_facts: True

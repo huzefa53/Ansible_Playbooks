@@ -1,0 +1,8 @@
+---
+#This playbook is used to take mysql dump 
+#Here we have to use mysql_db module
+
+- hosts: huzefa
+  tasks: 
+    - name: Taking mysql dump
+      mysql_db: state=dump login_user=root login_password=huzefa53 name=test target=/tmp/huzefa.sql
